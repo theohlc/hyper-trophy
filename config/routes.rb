@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
-  get 'workouts/new'
-  get 'workouts/create'
-  get 'workouts/update'
-  get 'workouts/edit'
-  get 'workouts/destroy'
-  get 'workouts/index'
-  get 'workouts/show'
-
+  resources :workouts
 
   root to: 'dashboards#show'
   

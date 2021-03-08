@@ -1,2 +1,19 @@
 <h1>Workouts#new</h1>
 <p>Find me in app/views/workouts/new.html.erb</p>
+<%= form_with model: @workout, url: workouts_path do |f| %>
+    <%= f.label :name, "Workout Name:" %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :category, "Category:" %>
+    <%= f.text_field :category %><br>
+
+    <%= f.label :duration, "Workout Duration (Minutes):" %>
+    <%= f.number_field :duration %><br>
+
+    <%= f.label :num_exercises, "Number of Exercises" %>
+    <%= f.number_field :num_exercises %><br>
+
+    <%= f.submit %>
+
+<% end %>
+    
