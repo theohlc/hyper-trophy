@@ -1,6 +1,7 @@
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     def google_oauth2
+      binding.pry
       user = User.from_google(from_google_params)
   
       if user.present?
