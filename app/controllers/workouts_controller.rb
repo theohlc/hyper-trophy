@@ -5,7 +5,8 @@ class WorkoutsController < ApplicationController
   end
 
   def create
-    binding.pry
+    @workout = current_user.workouts.create(workout_params)
+    redirect_to workout_path(@workout)
   end
 
   def update
@@ -22,4 +23,11 @@ class WorkoutsController < ApplicationController
 
   def show
   end
+
+  private
+
+  def workout_params
+    params.require(:workout).permit(:name, :category, :duration, :num_exercises)
+  end
+
 end
