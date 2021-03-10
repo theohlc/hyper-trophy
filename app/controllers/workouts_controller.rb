@@ -6,7 +6,10 @@ class WorkoutsController < ApplicationController
 
   def create
     @workout = current_user.workouts.create(workout_params)
-    redirect_to workout_path(@workout)
+    for i in 1..@workout.num_exercises do
+      @workout.workouts_exercises.create(order_occurs: i)
+    end
+    redirect_to edit_workout_workouts_exercise_path(@workout, @workout.first_exercise)
   end
 
   def update
