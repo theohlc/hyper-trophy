@@ -3,8 +3,21 @@
 <h1><%= @workout.name %></h1>
 <p>This <b><%= @workout.category %></b> workout should take 
 <b><%= @workout.duration %> minutes </b>to complete.</p>
-<% for i in 1..@workout.num_exercises %>
-    <%= "Exercise ##{i}:" %><br>
-<% end %>
+
+<table>
+    <tr>
+        <th>Sets</th>
+        <th>Reps</th>
+        <th>Exercise</th>
+    </tr>
+    <% @workout.workouts_exercises.each do |workouts_exercise| %>
+        <tr>
+            <th><%= workouts_exercise.sets %></th>
+            <th><%= workouts_exercise.reps %></th>
+            <th><%= workouts_exercise.exercise.name %></th>
+        </tr>
+    <% end %>
+</table>
+
 <p>This workout was made by
 <%= link_to @author.email, user_path(@author) %>
