@@ -1,0 +1,4 @@
+<h1>Workouts by <%= @user.email %>:</h1>
+<% @workouts.each do |workout| %>
+    <%= link_to workout.name, workout_path(workout) %><br>
+<%end%>
