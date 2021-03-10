@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :workouts
+  resources :workouts do
+    resources :workouts_exercises, only: [ :new, :create, :edit, :update ]
+  end
 
   root to: 'dashboards#show'
   
