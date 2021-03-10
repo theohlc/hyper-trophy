@@ -14,6 +14,6 @@ class WorkoutsExercisesController < ApplicationController
       exercise_id:  params[:workouts_exercise][:exercise_id]
     )
 
-    helpers.next_exercise
+    redirect_to helpers.next_exercise(@workouts_exercise)
   end
 end
