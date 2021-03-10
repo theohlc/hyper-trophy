@@ -22,6 +22,8 @@ class WorkoutsController < ApplicationController
   end
 
   def show
+    @workout = Workout.find(params[:id])
+    @author = @workout.user
   end
 
   private

@@ -1,2 +1,10 @@
 <h1>Workouts#show</h1>
 <p>Find me in app/views/workouts/show.html.erb</p>
+<h1><%= @workout.name %></h1>
+<p>This <b><%= @workout.category %></b> workout should take 
+<b><%= @workout.duration %> minutes </b>to complete.</p>
+<% for i in 1..@workout.num_exercises %>
+    <%= "Exercise ##{i}:" %><br>
+<% end %>
+<p>This workout was made by
+<%= link_to @author.email, user_path(@author) %>
