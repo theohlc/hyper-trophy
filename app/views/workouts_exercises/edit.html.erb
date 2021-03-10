@@ -1,2 +1,14 @@
 <h1>WorkoutsExercises#edit</h1>
 <p>Find me in app/views/workouts_exercises/edit.html.erb</p>
+<%= form_with model: @workouts_exercise, url: workout_workouts_exercise_path do |f| %>
+    <%= f.label :exercie_name, "Exercise Name:"%>
+    <%= f.text_field :exercie_name %><br>
+
+    <%= f.label :reps, "Reps:" %>
+    <%= f.number_field :reps %><br>
+
+    <%= f.label :sets, "Sets:" %>
+    <%= f.number_field :sets %><br>
+
+    <%= f.submit "Submit"%>
+<% end %>
