@@ -1,6 +1,6 @@
 class WorkoutsExercisesController < ApplicationController
   def edit
-    @workout = params[:workout_id]
+    @workout = Workout.find(params[:workout_id])
     @workouts_exercise = WorkoutsExercise.find(params[:id])
     @exercise_name = @workouts_exercise.exercise.name
   end
