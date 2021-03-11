@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root to: 'dashboards#show'
   
-  
+  get "users/:id/exercises", to: 'exercises#index', as: :user_exercises
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, :skip => [:sessions] 
   devise_scope :user do
