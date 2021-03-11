@@ -4,6 +4,8 @@ class ExercisesController < ApplicationController
     end
 
     def show
+        @exercise = Exercise.find(params[:id])
+        binding.pry
     end
 
 end
