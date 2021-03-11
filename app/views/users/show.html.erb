@@ -1,4 +1,5 @@
-<h1>Workouts by <%= @user.email %>:</h1>
+<h1><%= @user.email %></h1>
+This user has made <%= pluralize(@workouts.count, "workout") %>, using <%= pluralize(@exercises.count, "exercise") %>.<br>
 <% @workouts.each do |workout| %>
     <%= link_to workout.name, workout_path(workout) %><br>
 <%end%>
