@@ -1,0 +1,12 @@
+<%= form_with model: @workouts_exercise, url: workout_workouts_exercise_path do |f| %>
+    <%= f.label :exercise_name, "Exercise Name:"%>
+    <%= f.text_field :exercise_name, value: @workouts_exercise.exercise.name %><br>
+
+    <%= f.label :sets, "Sets:" %>
+    <%= f.number_field :sets %><br>
+
+    <%= f.label :reps, "Reps:" %>
+    <%= f.number_field :reps %><br>
+
+    <%= f.submit "Submit"%>
+<% end %>
