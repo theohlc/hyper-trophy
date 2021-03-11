@@ -15,8 +15,12 @@
             <th><%= workouts_exercise.sets %></th>
             <th><%= workouts_exercise.reps %></th>
             <th><%= workouts_exercise.exercise.name %></th>
+            <th><%= link_to "edit", edit_workout_workouts_exercise_path(@workout, workouts_exercise)%>
         </tr>
     <% end %>
+    <tr>
+        <th><%= link_to "Add exercise", new_workout_workouts_exercise_path(@workout) %></th>
+    </tr>
 </table>
 
 <p>This workout was made by
