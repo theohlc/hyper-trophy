@@ -1,5 +1,3 @@
-<h1>Workouts#show</h1>
-<p>Find me in app/views/workouts/show.html.erb</p>
 <h1><%= @workout.name %></h1>
 <p>This <b><%= @workout.category %></b> workout should take 
 <b><%= @workout.duration %> minutes </b>to complete.</p>
@@ -15,7 +13,8 @@
             <th><%= workouts_exercise.sets %></th>
             <th><%= workouts_exercise.reps %></th>
             <th><%= workouts_exercise.exercise.name %></th>
-            <th><%= link_to "edit", edit_workout_workouts_exercise_path(@workout, workouts_exercise)%>
+            <th><%= link_to "edit", edit_workout_workouts_exercise_path(@workout, workouts_exercise)%></th>
+            <th><%= button_to "delete", "/workouts/#{@workout.id}/workouts_exercises/#{workouts_exercise.id}", method: :delete %>
         </tr>
     <% end %>
     <tr>
