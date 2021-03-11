@@ -26,7 +26,18 @@ class WorkoutsExercisesController < ApplicationController
   end
 
   def create
-    workouts_exercise = params[:workouts_exercise]
+    workout = Workout.find(params[:workout_id])
+    exercise_name = params[:workouts_exercise][:exercise_name].capitalize
+    exercise = Exercise.find_or_create_by(name: exercise_name)
+
+    workout.workouts_exercises.create(
+      reps:         params[:workouts_exercise][:reps],
+      sets:         params[:workouts_exercise][:sets],
+      exercise_id:  exercise.id
+    )
+
+    redirect_to workout_path(workout)
   end
+
 
 end
