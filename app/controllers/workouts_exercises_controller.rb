@@ -1,6 +1,8 @@
 class WorkoutsExercisesController < ApplicationController
   def edit
+    @workout = params[:workout_id]
     @workouts_exercise = WorkoutsExercise.find(params[:id])
+    @exercise_name = @workouts_exercise.exercise.name
   end
 
   def update
@@ -16,4 +18,11 @@ class WorkoutsExercisesController < ApplicationController
 
     redirect_to helpers.next_exercise(@workouts_exercise)
   end
+
+  def new
+    workout = Workout.find(params[:workout_id])
+    @exercise_name = nil
+    @workouts_exercise = workout.workouts_exercises.build(order_occurs: (workout.workouts_exercises.last.order_occurs + 1))
+  end
+
 end
