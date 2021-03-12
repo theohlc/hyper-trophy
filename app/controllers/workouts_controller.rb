@@ -46,9 +46,7 @@ class WorkoutsController < ApplicationController
 
   def clear_empty_rows(workout)
     workout.workouts_exercises.each do |workouts_exercise|
-      binding.pry
       workouts_exercise.destroy unless workouts_exercise.valid?
-      binding.pry
     end
   end
 
