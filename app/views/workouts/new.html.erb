@@ -1,3 +1,18 @@
+<% if @workout.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@workout.errors.count, "error") %>
+      prohibited this post from being saved:
+    </h2>
+
+    <ul>
+    <% @workout.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %> 
+
 <h1>Workouts#new</h1>
 <p>Find me in app/views/workouts/new.html.erb</p>
 <%= form_with model: @workout, url: workouts_path do |f| %>
