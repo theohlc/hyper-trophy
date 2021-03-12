@@ -1,6 +1,10 @@
 <h1><%= @workout.name %></h1>
-<p>This <b><%= @workout.category %></b> workout should take 
-<b><%= @workout.duration %> minutes </b>to complete.</p>
+<p>
+    This <b><%= @workout.category %></b> workout should take 
+    <b><%= @workout.duration %> minutes </b>to complete.<br>
+    <%= button_to "delete", workout_path(@workout), method: :delete %>
+</p>
+
 
 <table>
     <tr>

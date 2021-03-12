@@ -5,11 +5,12 @@ class WorkoutsController < ApplicationController
   end
 
   def create
+    #binding.pry
     @workout = current_user.workouts.create(workout_params)
     for i in 1..@workout.num_exercises do
       @workout.workouts_exercises.create(order_occurs: i, exercise_id: 1)
     end
-    binding.pry
+    #binding.pry
     redirect_to edit_workout_workouts_exercise_path(@workout, @workout.first_exercise)
   end
 
@@ -20,6 +21,9 @@ class WorkoutsController < ApplicationController
   end
 
   def destroy
+    workout = Workout.find(params[:id])
+    workout.destroy
+    redirect_to user_path(current_user)
   end
 
   def index
