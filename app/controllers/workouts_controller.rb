@@ -5,13 +5,17 @@ class WorkoutsController < ApplicationController
   end
 
   def create
-    #binding.pry
-    @workout = current_user.workouts.create(workout_params)
-    for i in 1..@workout.num_exercises do
-      @workout.workouts_exercises.create(order_occurs: i, exercise_id: 1)
+    binding.pry
+    @workout = current_user.workouts.new(workout_params)
+    if @workout.save
+      for i in 1..@workout.num_exercises do
+        @workout.workouts_exercises.create(order_occurs: i, exercise_id: 1)
+      end
+      binding.pry
+      redirect_to edit_workout_workouts_exercise_path(@workout, @workout.first_exercise)
+    else
+      render :new
     end
-    #binding.pry
-    redirect_to edit_workout_workouts_exercise_path(@workout, @workout.first_exercise)
   end
 
   def update
