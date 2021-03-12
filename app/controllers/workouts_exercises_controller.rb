@@ -22,7 +22,11 @@ class WorkoutsExercisesController < ApplicationController
   def new
     @workout = Workout.find(params[:workout_id])
     @exercise_name = nil
-    @workouts_exercise = @workout.workouts_exercises.build(order_occurs: (@workout.workouts_exercises.last.order_occurs + 1))
+    if @workout.workouts_exercises.empty?
+      @workouts_exercise = @workout.workouts_exercises.build(order_occurs: 1)
+    else
+      @workouts_exercise = @workout.workouts_exercises.build(order_occurs: (@workout.workouts_exercises.last.order_occurs + 1))
+    end
   end
 
   def create
@@ -31,6 +35,7 @@ class WorkoutsExercisesController < ApplicationController
     exercise = Exercise.find_or_create_by(name: exercise_name)
 
     workout.workouts_exercises.create(
+      order_occurs: params[:workouts_exercise][:order_occurs],
       reps:         params[:workouts_exercise][:reps],
       sets:         params[:workouts_exercise][:sets],
       exercise_id:  exercise.id

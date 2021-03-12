@@ -1,4 +1,5 @@
 <%= form_with model: @workouts_exercise, url: @form_path do |f| %>
+    <%= f.hidden_field :order_occurs, value: @workouts_exercise.order_occurs %>
     <%= f.label :exercise_name, "Exercise Name:"%>
     <%= f.text_field :exercise_name, value: @exercise_name %><br>
 
