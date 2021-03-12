@@ -34,6 +34,7 @@ class WorkoutsController < ApplicationController
 
   def show
     @workout = Workout.find(params[:id])
+    clear_empty_rows(@workout)
     @author = @workout.user
   end
 
@@ -41,6 +42,14 @@ class WorkoutsController < ApplicationController
 
   def workout_params
     params.require(:workout).permit(:name, :category, :duration, :num_exercises)
+  end
+
+  def clear_empty_rows(workout)
+    workout.workouts_exercises.each do |workouts_exercise|
+      binding.pry
+      workouts_exercise.destroy unless workouts_exercise.valid?
+      binding.pry
+    end
   end
 
 end
