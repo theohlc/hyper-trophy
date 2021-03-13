@@ -21,4 +21,15 @@ class User < ApplicationRecord
     exercises.uniq
   end
 
+  def self.most_workouts
+    users = User.all 
+    user_with_most = users.first
+    users.each do |user|
+      if user.workouts.count > user_with_most.workouts.count
+        user_with_most = user
+      end
+    end
+    user_with_most
+  end
+
 end
