@@ -13,8 +13,8 @@
   </div>
 <% end %> 
 
-<h1>Workouts#new</h1>
-<p>Find me in app/views/workouts/new.html.erb</p>
+<h1>New Workout:</h1>
+<p>Fill out the fields and hit submit to make your new workout.</p>
 <%= form_with model: @workout, url: workouts_path do |f| %>
     <%= f.label :name, "Workout Name:" %>
     <%= f.text_field :name %><br>
