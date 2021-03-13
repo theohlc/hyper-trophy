@@ -2,7 +2,6 @@
 <p>
     This <b><%= @workout.category %></b> workout should take 
     <b><%= @workout.duration %> minutes </b>to complete.<br>
-    <%= button_to "delete", workout_path(@workout), method: :delete %>
 </p>
 
 
@@ -17,13 +16,8 @@
             <td><%= workouts_exercise.sets %></td>
             <td><%= workouts_exercise.reps %></td>
             <td><%= workouts_exercise.exercise.name %></td>
-            <td><%= link_to "edit", edit_workout_workouts_exercise_path(@workout, workouts_exercise)%></td>
-            <td><%= button_to "delete", "/workouts/#{@workout.id}/workouts_exercises/#{workouts_exercise.id}", method: :delete %></td>
         </tr>
     <% end %>
-    <tr>
-        <th><%= link_to "Add exercise", new_workout_workouts_exercise_path(@workout) %></th>
-    </tr>
 </table>
 
 <p>This workout was made by
