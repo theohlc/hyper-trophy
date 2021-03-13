@@ -30,6 +30,7 @@ class WorkoutsController < ApplicationController
   end
 
   def index
+    @workouts = Workout.all
   end
 
   def show
