@@ -18,6 +18,8 @@ class WorkoutsController < ApplicationController
   end
 
   def update
+    @workout = Workout.find(params[:id])
+    render :edit
   end
 
   def edit
