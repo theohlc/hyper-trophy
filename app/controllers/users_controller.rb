@@ -11,4 +11,9 @@ class UsersController < ApplicationController
         @exercises = @user.exercises
     end
 
+    def most_workouts
+        @user = User.most_workouts
+        @workouts = @user.workouts
+    end
+
 end

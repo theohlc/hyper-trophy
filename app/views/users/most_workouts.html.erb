@@ -1,0 +1,7 @@
+<h1>Wow! <%=link_to @user.email, user_path(@user)%> has the most workouts!</h1>
+<p><%= @user.email %> has made <%= pluralize(@workouts.count, "workout") %>!<br>
+    Here they are:
+</p> 
+<% @workouts.each do |workout| %>
+    <%= link_to workout.name, workout_path(workout) %><br>
+<%end%>
