@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :workouts_exercises, only: [ :new, :edit, :create, :update, :destroy ]
   end
 
+  get "/myworkouts", to: "workouts#my_workouts", as: :workouts_my_workouts
+
   resources :exercises, only: [ :index, :show ]
 
   root to: 'dashboards#show'

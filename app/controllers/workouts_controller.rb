@@ -40,6 +40,10 @@ class WorkoutsController < ApplicationController
     clear_empty_rows(@workout)
     @author = @workout.user
   end
+  
+  def my_workouts
+    @workouts = current_user.workouts
+  end
 
   private
 
