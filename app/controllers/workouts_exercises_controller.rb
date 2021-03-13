@@ -1,4 +1,6 @@
 class WorkoutsExercisesController < ApplicationController
+  before_action :check_user_owned
+
   def edit
     @workout = Workout.find(params[:workout_id])
     @workouts_exercise = WorkoutsExercise.find(params[:id])

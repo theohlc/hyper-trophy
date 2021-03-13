@@ -8,7 +8,7 @@ module WorkoutsExercisesHelper
         if next_workouts_exercise
             edit_workout_workouts_exercise_path(workout, next_workouts_exercise)
         else
-            workout_path(workout)
+            edit_workout_path(workout)
         end
     end
 

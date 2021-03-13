@@ -1,5 +1,6 @@
 class WorkoutsController < ApplicationController
-  
+  before_action :check_user_owned, only: [ :update, :edit, :destroy ]
+
   def new
     @workout = Workout.new
   end
