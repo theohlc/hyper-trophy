@@ -6,9 +6,9 @@
         <th>Category</th>
         <th>Author</th>
     </tr>
-    <%= @workouts.each do |workout| %>
+    <% @workouts.each do |workout| %>
         <tr>
-            <td><%= link_to workout.name workout_path(@workout) %></td>
+            <td><%= link_to workout.name, workout_path(workout) %></td>
             <td><%= " #{workout.duration} minutes " %></td>
             <td><%= workout.category %></td>
             <td><%= workout.user.email %></td>
