@@ -1,4 +1,4 @@
 <br>
 <% @exercises.each do |exercise| %>
-    <%= exercise.name %><br>
+    <%= link_to exercise.name, exercise_path(exercise) %><br>
 <% end %>
