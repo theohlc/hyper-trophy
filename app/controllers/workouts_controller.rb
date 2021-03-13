@@ -6,6 +6,7 @@ class WorkoutsController < ApplicationController
   end
 
   def create
+    params[:workout][:category].capitalize!
     @workout = current_user.workouts.new(workout_params)
     if @workout.save
       for i in 1..@workout.num_exercises do
@@ -19,7 +20,11 @@ class WorkoutsController < ApplicationController
   end
 
   def update
+    params[:workout][:category].capitalize!
     @workout = Workout.find(params[:id])
+
+    @workout.update(workout_params)
+
     render :edit
   end
 
@@ -39,9 +44,14 @@ class WorkoutsController < ApplicationController
   end
 
   def show
-    @workout = Workout.find(params[:id])
-    clear_empty_rows(@workout)
-    @author = @workout.user
+    if params[:id].to_i == 0
+      @workouts = Workout.where('category = ?', params[:id])
+      render :index
+    else
+      @workout = Workout.find(params[:id])
+      clear_empty_rows(@workout)
+      @author = @workout.user
+    end
   end
   
   def my_workouts
