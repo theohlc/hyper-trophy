@@ -14,11 +14,11 @@
     </tr>
     <% @workout.workouts_exercises.each do |workouts_exercise| %>
         <tr>
-            <th><%= workouts_exercise.sets %></th>
-            <th><%= workouts_exercise.reps %></th>
-            <th><%= workouts_exercise.exercise.name %></th>
-            <th><%= link_to "edit", edit_workout_workouts_exercise_path(@workout, workouts_exercise)%></th>
-            <th><%= button_to "delete", "/workouts/#{@workout.id}/workouts_exercises/#{workouts_exercise.id}", method: :delete %>
+            <td><%= workouts_exercise.sets %></td>
+            <td><%= workouts_exercise.reps %></td>
+            <td><%= workouts_exercise.exercise.name %></td>
+            <td><%= link_to "edit", edit_workout_workouts_exercise_path(@workout, workouts_exercise)%></td>
+            <td><%= button_to "delete", "/workouts/#{@workout.id}/workouts_exercises/#{workouts_exercise.id}", method: :delete %></td>
         </tr>
     <% end %>
     <tr>
