@@ -12,7 +12,7 @@ Specs:
         Workout - duration, num_exercises, category must exist
                   name must be unique
         WorkoutsExercise - reps, sets must exist
-        Exercise - 
+        Exercise - name must be unique
 - [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 - [x] Include signup (how e.g. Devise)
 - [x] Include login (how e.g. Devise)
