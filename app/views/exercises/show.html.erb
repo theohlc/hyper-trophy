@@ -1,5 +1,4 @@
 <h1>The <%= @exercise.name %></h1>
 <% @exercise.workouts.each do |workout| %>
-    <%= binding.pry %>
-    <%= link_to workout.name, workout_path(workout) %>
+    <%= link_to workout.name, workout_path(workout) %><br>
 <% end %>
