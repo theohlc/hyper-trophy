@@ -1,2 +1,58 @@
-<h1>Workouts#edit</h1>
-<p>Find me in app/views/workouts/edit.html.erb</p>
+<h1><%= @workout.name %></h1>
+<p>
+    <% if @workout.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@workout.errors.count, "error") %>
+      prohibited this post from being saved:
+    </h2>
+
+    <ul>
+    <% @workout.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %> 
+
+<%= form_with model: @workout, url: workouts_path do |f| %>
+    <%= f.label :name, "Workout Name:" %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :category, "Category:" %>
+    <%= f.text_field :category %><br>
+
+    <%= f.label :duration, "Workout Duration (Minutes):" %>
+    <%= f.number_field :duration %><br>
+
+    <%= f.label :num_exercises, "Number of Exercises" %>
+    <%= f.number_field :num_exercises %><br>
+
+    <%= f.submit %>
+
+<% end %>
+    
+</p>
+
+
+<table>
+    <tr>
+        <th>Sets</th>
+        <th>Reps</th>
+        <th>Exercise</th>
+    </tr>
+    <% @workout.workouts_exercises.each do |workouts_exercise| %>
+        <tr>
+            <td><%= workouts_exercise.sets %></td>
+            <td><%= workouts_exercise.reps %></td>
+            <td><%= workouts_exercise.exercise.name %></td>
+            <td><%= link_to "edit", edit_workout_workouts_exercise_path(@workout, workouts_exercise)%></td>
+            <td><%= button_to "delete", "/workouts/#{@workout.id}/workouts_exercises/#{workouts_exercise.id}", method: :delete %></td>
+        </tr>
+    <% end %>
+    <tr>
+        <th><%= link_to "Add exercise", new_workout_workouts_exercise_path(@workout) %></th>
+    </tr>
+</table>
+
+<p>This workout was made by you </p>

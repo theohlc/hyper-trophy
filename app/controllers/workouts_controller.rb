@@ -21,6 +21,8 @@ class WorkoutsController < ApplicationController
   end
 
   def edit
+    @workout = Workout.find(params[:id])
+    redirect_to workout_path(@workout) if @workout.user != current_user
   end
 
   def destroy
