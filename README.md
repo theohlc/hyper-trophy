@@ -1,24 +1,27 @@
-# README
+# HyperTrophy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+HyperTrophy creates a html site for users to share workouts with one another. Each user can add any number of unique workouts, using user submitted exercises. Users can look for workouts from specific users or using specific exercises.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Execute 
 
-* System dependencies
+    $ bundle install
 
-* Configuration
+and then
 
-* Database creation
+    $ rails db:migrate
 
-* Database initialization
+In the root directory
 
-* How to run the test suite
+## Use
 
-* Services (job queues, cache servers, search engines, etc.)
+Start the application by entering "rails s" into the console. Then use your preffered web browser to navigate to localhost:3000 From there sign up. Begin adding workouts, and once some workouts are in the database view them. 
 
-* Deployment instructions
+## Contributing
 
-* ...
+Bug reports and pull requests are welcome on GitHub at https://github.com/theohlc/strong-grips. Please add comments.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
