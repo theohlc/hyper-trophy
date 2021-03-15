@@ -5,5 +5,8 @@ class CreateExercises < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+
+    Exercise.create(name: nil)
+    
   end
 end
