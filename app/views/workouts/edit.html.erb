@@ -25,9 +25,10 @@
     <%= f.label :duration, "Workout Duration (Minutes):" %>
     <%= f.number_field :duration %><br>
 
-    <%= f.submit %>
+    <%= f.submit %> <br>
 
 <% end %>
+<%= button_to "Delete this workout", workout_path(@workout), method: :delete %>
     
 </p>
 
@@ -44,7 +45,7 @@
             <td><%= workouts_exercise.reps %></td>
             <td><%= workouts_exercise.exercise.name %></td>
             <td><%= link_to "edit", edit_workout_workouts_exercise_path(@workout, workouts_exercise)%></td>
-            <td><%= button_to "delete", "/workouts/#{@workout.id}/workouts_exercises/#{workouts_exercise.id}", method: :delete %></td>
+            <td><%= button_to "delete", workout_workouts_exercise_path(@workout, workouts_exercise), method: :delete %></td>
         </tr>
     <% end %>
     <tr>
