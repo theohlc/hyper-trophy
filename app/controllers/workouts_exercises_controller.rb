@@ -43,7 +43,7 @@ class WorkoutsExercisesController < ApplicationController
       exercise_id:  exercise.id
     )
 
-    redirect_to workout_path(workout)
+    redirect_to edit_workout_path(workout)
   end
 
   def destroy
